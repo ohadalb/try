@@ -1,0 +1,19 @@
+version: 3
+projects:
+  - dir: mydir
+    workspace: default
+    terraform_version: v1.6.6
+    autoplan:
+      when_modified: ["*.tf", "*.tfvars"]
+      enabled: true
+    workflow: win-custom
+
+workflows:
+  win-custom:
+    plan:
+      steps:
+        - run: '"C:\\Users\\Horizon User\\bin\\terraform.exe" init -input=false'
+        - run: '"C:\\Users\\Horizon User\\bin\\terraform.exe" plan -input=false -out=tfplan'
+    apply:
+      steps:
+        - run: '"C:\\Users\\Horizon User\\bin\\terraform.exe" apply -input=false tfplan'
