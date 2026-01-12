@@ -1,0 +1,10 @@
+bumps:
+  - file: package.json
+    json:
+      - path: "version"
+        semver: true
+commitAuthor:
+  name: Uplift Bot
+  email: uplift@bot.com
+
+commitMessage: "jenkins: bump version to {{version}}"
